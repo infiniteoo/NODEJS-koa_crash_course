@@ -6,6 +6,9 @@ const render = require("koa-ejs");
 
 const router = new KoaRouter();
 
+// replace with database
+const things = ["My family", "Programming", "Music"];
+
 render(app, {
   root: path.join(__dirname, "views"),
   layout: "layout",
@@ -18,6 +21,7 @@ render(app, {
 router.get("/", async (ctx) => {
   await ctx.render("index", {
     title: "Things I Love",
+    things: things,
   });
 });
 
