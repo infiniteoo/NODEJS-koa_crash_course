@@ -17,13 +17,16 @@ render(app, {
   debug: false,
 });
 
-// index
-router.get("/", async (ctx) => {
+// Routes
+router.get("/", index);
+
+// list of things
+async function index(ctx) {
   await ctx.render("index", {
     title: "Things I Love",
     things: things,
   });
-});
+}
 
 /* app.use(async (ctx) => (ctx.body = { msg: "Hello World" })); */
 router.get("/test", (ctx) => (ctx.body = "Hello Test"));
