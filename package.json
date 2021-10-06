@@ -19,6 +19,7 @@
   "homepage": "https://github.com/infiniteoo/NODEJS-koa_crash_course#readme",
   "dependencies": {
     "koa": "^2.13.3",
+    "koa-bodyparser": "^4.3.0",
     "koa-ejs": "^4.3.0",
     "koa-router": "^10.1.1"
   },

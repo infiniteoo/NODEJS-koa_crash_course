@@ -3,11 +3,15 @@ const KoaRouter = require("koa-router");
 const app = new Koa();
 const path = require("path");
 const render = require("koa-ejs");
+const bodyParser = require("koa-bodyparser");
 
 const router = new KoaRouter();
 
 // replace with database
 const things = ["My family", "Programming", "Music"];
+
+// bodyparser middleware
+app.use(bodyParser());
 
 render(app, {
   root: path.join(__dirname, "views"),
@@ -20,6 +24,7 @@ render(app, {
 // Routes
 router.get("/", index);
 router.get("/add", showAdd);
+router.post("/add", add);
 
 // list of things
 async function index(ctx) {
@@ -32,6 +37,13 @@ async function index(ctx) {
 // show add page
 async function showAdd(ctx) {
   await ctx.render("add");
+}
+
+// add thing
+async function add(ctx) {
+  const body = ctx.request.body;
+  things.push(body.thing);
+  ctx.redirect("/");
 }
 
 /* app.use(async (ctx) => (ctx.body = { msg: "Hello World" })); */
