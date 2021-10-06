@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/infiniteoo/NODEJS-koa_crash_course#readme",
   "dependencies": {
-    "koa": "^2.13.3"
+    "koa": "^2.13.3",
+    "koa-router": "^10.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
