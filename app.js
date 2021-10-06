@@ -14,6 +14,11 @@ render(app, {
   debug: false,
 });
 
+// index
+router.get("/", async (ctx) => {
+  await ctx.render("index");
+});
+
 /* app.use(async (ctx) => (ctx.body = { msg: "Hello World" })); */
 router.get("/test", (ctx) => (ctx.body = "Hello Test"));
 
