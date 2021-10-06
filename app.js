@@ -16,7 +16,9 @@ render(app, {
 
 // index
 router.get("/", async (ctx) => {
-  await ctx.render("index");
+  await ctx.render("index", {
+    title: "Things I Love",
+  });
 });
 
 /* app.use(async (ctx) => (ctx.body = { msg: "Hello World" })); */
