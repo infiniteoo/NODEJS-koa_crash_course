@@ -13,6 +13,9 @@ const things = ["My family", "Programming", "Music"];
 // bodyparser middleware
 app.use(bodyParser());
 
+// add additional properties to context
+app.context.user = "Troy";
+
 render(app, {
   root: path.join(__dirname, "views"),
   layout: "layout",
@@ -47,7 +50,7 @@ async function add(ctx) {
 }
 
 /* app.use(async (ctx) => (ctx.body = { msg: "Hello World" })); */
-router.get("/test", (ctx) => (ctx.body = "Hello Test"));
+router.get("/test", (ctx) => (ctx.body = `Hello ${ctx.user}`));
 
 // Router middleware
 app.use(router.routes()).use(router.allowedMethods());
